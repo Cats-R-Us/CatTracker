@@ -1,18 +1,16 @@
 
-var app = angular.module('app', function($routeProvider) {
-  $routeProvider.when('/', {
-    templateUrl: 'partials/thumbnail.html'
-  })
-})
-
-function BarnCatsAppController ($scope) {
-
-
-  $scope.adopters = [
-    {name: "asdf"},
-    {name: "df"},
-    {name: "fgh"}
-  ]
-
-}
-
+angular.module('barncats', [])
+  .config(['$routeProvider', function($routeProvider) {
+  $routeProvider
+    .when('/adopters', {
+      templateUrl: 'partials/adopter-list.html',
+      controller: AdopterListCtrl
+    })
+    .when('/adopters/:adopterId', {
+      templateUrl: 'partials/adopter-detail.html',
+      controller: AdopterDetailCtrl
+    })
+    .otherwise({
+      redirectTo: '/adopters'
+    })
+  }])
