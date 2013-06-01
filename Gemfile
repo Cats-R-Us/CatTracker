@@ -7,6 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'pg', '0.15.1'
 gem 'devise', '2.2.4'
+gem 'annotate', '2.5.0'
 
 
 # Gems used only for assets and not required
