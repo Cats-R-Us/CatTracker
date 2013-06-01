@@ -1,10 +1,13 @@
 CatTracker::Application.routes.draw do
   devise_for :users
 
-  resources :users
+  resources :users do
+    resources :profiles
+  end
+
   resources :profiles
 
-  root to: "profiles#show"
+  root to: "users#show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

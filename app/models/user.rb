@@ -9,6 +9,5 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
-  has_one :adopter
-  has_one :admin
+  has_one :profile #adopter profile, e.g. contact information
 end
