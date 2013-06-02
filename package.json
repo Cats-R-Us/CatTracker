@@ -1,0 +1,25 @@
+{
+  "name": "CatTracker",
+  "version": "0.0.0",
+  "description": "== Welcome to Rails",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Cats-R-Us/CatTracker.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "readmeFilename": "README.rdoc",
+  "gitHead": "c6abd5a535ca286a752af6a3600f8fcb96121df7",
+  "dependencies": {
+    "soda-js": "git://github.com/socrata/soda-js.git",
+    "express": "~3.2.5"
+  }
+}
