@@ -1,15 +1,18 @@
 function AdopterListCtrl($scope, $http) {
-  // $http.get('adopters/adopters.json').success(function(data) {
-  //   $scope.phones = data;
-  // });
 
-  $scope.adopters = [
-    {id: "1", name: "asdf"},
-    {id: "2", name: "df"},
-    {id: "3", name: "fgh"}
-  ]
+  $http.get("/soda/barncats").success(function(data) {
+    $scope.adopters = data
+  })
 }
 
-function AdopterDetailCtrl($scope, $routeParams) {
+function AdopterDetailCtrl($scope, $http, $routeParams) {
   $scope.adopterId = $routeParams.adopterId
+
+  $http.get("/soda/barncats").success(function(data) {
+    // at some point we will load these up front
+    $scope.allCounties = _.unique(_.pluck(data, "county"))
+    $scope.allStates = _.unique(_.pluck(data, "state"))
+
+    $scope.adopter = data[$routeParams.adopterId]
+  })
 }

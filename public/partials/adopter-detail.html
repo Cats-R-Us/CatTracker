@@ -1,1 +1,197 @@
-viewing id: {{adopterId}}
+<form class="form">
+  <div class="pure-form pure-form-stacked">
+    <fieldset>
+      <legend>Adopter information</legend>
+      <!-- Name -->
+      <div class="group group-name">
+        <label>Name</label>
+        <input id="first-name" type="text" placeholder="First name" ng-model="adopter.first_name">
+        <input id="last-name" type="text" placeholder="Last name" ng-model="adopter.last_name">
+      </div>
+      <!-- Address -->
+      <div class="group group-address">
+        <label>Address</label>
+        <input id="street" type="text" placeholder="Street" ng-model="adopter.street_address">
+        <input id="city" type="text" placeholder="City" ng-model="adopter.city">
+        <div class="select-other">
+          <select id="county" class="pure-select-other" ng-model="adopter.county" ng-options="country for country in allCounties">
+            <option value="">Other</option>
+            <!-- <option>County</option>
+            <option>Clallum</option>
+            <option>Clark</option>
+            <option>Cowlitz</option>
+            <option>Grays Harbor</option>
+            <option>Island</option>
+            <option>Lewis</option>
+            <option>King</option>
+            <option>Kitsap</option>
+            <option>Mason</option>
+            <option>Pacific</option>
+            <option>Pierce</option>
+            <option>San Juan</option>
+            <option>Skagit</option>
+            <option>Snohomish</option>
+            <option>Thurston</option>
+            <option>Wahkiakum</option>
+            <option>Whatcom</option> -->
+          </select>
+          <input
+            type="text"
+            class="pure-input-other"
+            id="county-other"
+            placeholder="Other county"
+            ng-model="adopter.county"
+            ng-show="adopter.county == 'other' || allCounties.indexOf(adopter.county) == -1"
+          />
+        </div>
+        <select id="state" class="pure-input-medium" ng-model="adopter.state" ng-options="state for state in allStates">
+          <!-- <option>State</option>
+          <option value="WA">Washington</option>
+          <option value="OR">Oregon</option>
+          <option value="ID">Idaho</option> -->
+        </select>
+        <input
+          type="text"
+          class="pure-input-other"
+          id="state-other"
+          placeholder="Other state"
+          ng-model="adopter.state"
+          ng-show="adopter.state == 'other' || allStates.indexOf(adopter.state) == -1"
+        />
+        <input id="zip" type="text" placeholder="ZIP" ng-model="adopter.zip" />
+      </div>
+      <!-- Contact information -->
+      <div class="group">
+        <label>Contact information</label>
+        <div class="group-telephone1">
+          <input id="telephone1" type="text" placeholder="Telephone 1" ng-model="adopter.telephone.phone_number" />
+
+          <!-- not implemented! -->
+          <select id="telephone1" class="pure-input-medium" ng-model="adopter.telephone.phone_type">
+            <option>AM</option>
+            <option>PM</option>
+            <option>Fax</option>
+          </select>
+        </div>
+        <!--<div class="group-telephone2">
+          <input id="telephone2" type="text" placeholder="Telephone 2" ng-model="adopter." />
+          <select id="telephone2" class="pure-input-medium">
+            <option>AM</option>
+            <option>PM</option>
+            <option>Fax</option>
+          </select>
+        </div>-->
+        <input id="email" type="text" placeholder="Email address" ng-model="adopter.email" />
+      </div>
+    </fieldset>
+  </div>
+  <!-- Referral information: Referred by, referred other -->
+  <div class="pure-form pure-form-aligned">
+    <fieldset>
+      <legend>Adoption information</legend>
+      <!-- Purpose -->
+      <div class="pure-control-group select-other">
+        <label for="purpose">Purpose for adoption</label>
+        <select id="purpose" class="pure-input-medium">
+          <option>Purpose for adoption</option>
+          <option>Controlling rodents</option>
+          <option>Companionship</option>
+          <option>Compassion</option>
+          <option value="other">Other (Please specify)</option>
+        </select>
+        <input type="text" class="pure-input-other" id="purpose-other" placeholder="Other purpose" ng-model="adopter.s" />
+      </div>
+      <!-- First time? -->
+      <div class="pure-controls">
+        <p>
+          <label for="firsttime">
+            <input type="checkbox" id="firsttime" ng-model="adopter.first_time" />First time requesting a cat?</label>
+        </p>
+      </div>
+      <!-- Preferred type of cat -->
+      <div class="pure-control-group">
+        <label for="purpose">Type of cat</label>
+        <select id="type-of-cat" class="pure-input-medium" ng-model="adopter.socialization">
+          <option>Preferred type of cat</option>
+          <option>Social</option>
+          <option>Semi-social</option>
+          <option>Feral</option>
+        </select>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>Your environment</legend>
+      <div class="pure-form-aligned">
+        <!-- Shelter -->
+        <div class="pure-control-group select-other">
+          <label for="shelter">Shelter</label>
+          <select id="shelter" class="pure-input-medium">
+            <option>Choose a shelter type</option>
+            <option>Barn</option>
+            <option>Basement</option>
+            <option>Carport</option>
+            <option>Cat house (?)</option>
+            <option>Garage</option>
+            <option>House</option>
+            <option>Shed</option>
+            <option value="other">Other (Please specify)</option>
+          </select>
+          <input type="text" class="pure-input-other" id="shelter-other" placeholder="Other type of shelter" ng-model="adopter.f" />
+        </div>
+        <!-- Acclimation -->
+        <div class="pure-control-group select-other">
+          <label for="acclimation">How will acclimation be handled?</label>
+          <select id="acclimation">
+            <option value="">Choose an acclimation method</option>
+            <option>Basement</option>
+            <option>Cage</option>
+            <option>Closed barn</option>
+            <option>Closed garage</option>
+            <option>Closed shed</option>
+            <option>Crawl space</option>
+            <option>Greenhouse</option>
+            <option>Tack room</option>
+            <option>Tent</option>
+            <option value="other">Other (Please specify)</option>
+          </select>
+          <input type="text" class="pure-input-other" id="acclimation-other" placeholder="Other type of acclimation" ng-model="adopter.g" />
+        </div>
+        <!-- Dogs -->
+        <div class="pure-control-group select-other">
+          <label for="dogs">Dogs</label>
+          <select id="dogs" class="pure-input-medium">
+            <option>No dogs</option>
+            <option>Dogs, cat-friendly</option>
+            <option>Dogs, not cat-friendly</option>
+            <option>Dogs, not cat friendly but always supervised</option>
+            <option>Dogs, not cat friendly but cannot access cats' living space</option>
+            <option value="other">Other (Please specify)</option>
+          </select>
+          <input type="text" class="pure-input-other" id="acclimation-other" placeholder="Other type of dogs" ng-model="adopter.e" />
+        </div>
+        <!-- Land type -->
+        <div class="pure-control-group select-other">
+          <label for="land-type">Land type</label>
+          <select id="land-type" class="pure-input-medium">
+            <option>Choose a land type</option>
+            <option>Rural</option>
+            <option>Suburban</option>
+            <option>Urban</option>
+            <option>Mobile home</option>
+            <option value="other">Other (Please specify)</option>
+          </select>
+          <input type="text" class="pure-input-other" id="land-type" placeholder="Other land type" ng-model="adopter.c" />
+        </div>
+        <!-- Describe environemnt -->
+        <div class="pure-control-group">
+          <label for="environment-description">Please describe your environment</label>
+          <textarea id="environment-description" ng-model="adopter.pickup_notes"></textarea>
+        </div>
+        <!-- Vet name (text) Vet phone (text) -->
+      </div>
+    </fieldset>
+  </div>
+  <div class="pure-controls">
+    <button type="submit" class="pure-button">Sent my request</button>
+  </div>
+</form>

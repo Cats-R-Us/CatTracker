@@ -1,0 +1,42 @@
+.app {
+  margin: 0 auto;
+  width: 900px;
+}
+
+
+.pure-form.pure-form-aligned select {
+  height: 30px;
+}
+
+.pure-form.pure-form-aligned select,
+.pure-form.pure-form-aligned input[type=text] {
+  width: 400px;
+}
+
+.pure-form.pure-form-aligned input.pure-input-other,
+.pure-form.pure-form-stacked input.pure-input-other {
+  /*display: none;*/
+  width: 200px;
+}
+
+form .group {
+  display: block;
+  overflow: hidden;
+}
+
+form .group input,
+form .group select {
+  float: left;
+  margin-right: 20px;
+}
+
+form .group #street {
+  float: none;
+  margin-bottom: 10px;
+  width: 600px;
+}
+
+form .group-telephone1 {
+  border-right: 1px solid #ccc;
+  background: red;
+}

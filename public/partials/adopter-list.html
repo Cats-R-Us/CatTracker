@@ -1,5 +1,5 @@
 <ul>
   <li ng-repeat="adopter in adopters">
-    <a href="#/adopters/{{adopter.id}}">{{adopter.name}}</a>
+    <a href="#/adopters/{{$index}}">{{adopter.first_name}} {{adopter.last_name}}</a>
   </li>
 </ul>
